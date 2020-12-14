@@ -6,10 +6,19 @@ export default function Saldo() {
 
     const saldos = useSelector(state => state.saldos)
 
-    const lista = saldos.map(item => ({
+    const haber = saldos.map(item => ({
         price: item.haber
     }));
-    const sumaHaberes = lista.reduce((prev, next) => prev + next.price, 0);
+    const sumaHaberes = haber.reduce((prev, next) => prev + next.price, 0);
+
+    const debe = saldos.map(item => ({
+        price: item.debe
+    }));
+
+    const sumaDebe = debe.reduce((prev, next) => prev + next.price, 0);
+
+    const sumaSaldo = sumaHaberes - sumaDebe
+
     const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
@@ -20,11 +29,13 @@ export default function Saldo() {
         <div>
             <p className='saldo'>
                 <div className={sumaHaberes > 1500 ? 'saldoBlue' : 'saldoRed'}>
-                    Saldo: {formatter.format(sumaHaberes)}
+                    Saldo:{formatter.format(sumaSaldo)}
                 </div>
             </p>
-            <div>Debe:</div>
-            <div>Haber:</div>
+            <div>
+                <div>Debe: {formatter.format(sumaDebe)}</div>
+                <div>Haber: {formatter.format(sumaHaberes)}</div>
+            </div>
         </div>
     )
 }
