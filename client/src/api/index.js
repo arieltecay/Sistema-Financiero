@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const urlSaldo = 'http://localhost:5000/saldo'
-const urlmovimiento = 'http://localhost:5000/movimientos'
+const urlmovimiento = 'https://tecayfinancials.herokuapp.com/movimientos'
 
 export const fetchSaldo = () => axios.get(urlSaldo)
 export const fetchMovimiento = () => axios.get(urlmovimiento)
