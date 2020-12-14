@@ -32,9 +32,13 @@ export default function Saldo() {
                     Saldo:{formatter.format(sumaSaldo)}
                 </div>
             </p>
-            <div>
-                <div>Debe: {formatter.format(sumaDebe)}</div>
-                <div>Haber: {formatter.format(sumaHaberes)}</div>
+            <div >
+                <div className='egreso'>
+                    Egreso: {formatter.format(sumaDebe)}
+                </div>
+                <div className='ingreso' >
+                    Ingreso: {formatter.format(sumaHaberes)}
+                </div>
             </div>
         </div>
     )
