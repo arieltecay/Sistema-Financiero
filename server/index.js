@@ -15,7 +15,7 @@ app.use(cors())
 app.use('/movimientos', movimientosRoute)
 app.use('/saldo', saldoRoute)
 
-const CONECCTION_URL = 'mongodb+srv://arieltecay:arieltecay123@cluster0.tlbsv.mongodb.net/Cluster0?retryWrites=true&w=majority'
+const CONECCTION_URL = 'mongodb+srv://brunotecay:brunotecay123@cluster0.653xl.mongodb.net/Cluster0?retryWrites=true&w=majority'
 const PORT = process.env.PORT || 5000
 
 mongoose.connect(CONECCTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -39,7 +39,7 @@ export default function Movimientos() {
 
         !movimientos.length ? <CircularProgress /> : (
             <Container maxidth='lg'>
-                {abrirModal && <Modal show={abrirModal} onHide={()=>setAbrirModal(false)} datos={datos} />}
+                {abrirModal && <Modal show={abrirModal} onHide={() => setAbrirModal(false)} datos={datos} />}
                 <div className='pagination'>
                     <Pagination
                         postsPerPage={movimientosPerPage}
@@ -61,7 +61,7 @@ export default function Movimientos() {
                                 <th>Descripción</th>
                                 <th>Sucursal</th>
                                 <th>Haber</th>
-                                <th>Descripcion</th>
+                                <th>Observación</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -73,9 +73,7 @@ export default function Movimientos() {
                                     <td data-titulo='Descripcion'>{mov.descripcion}</td>
                                     <td data-titulo='Sucursal'>{mov.sucursal}</td>
                                     <td data-titulo='Haber'>${mov.haber}</td>
-                                    <td data-titulo='Haber'>
-                                        <p>Pendiente</p>
-                                    </td>
+                                    <td data-titulo='observacion'> {mov.observacion} </td>
                                     <td className='botones' >
                                         <button className="btn btn-primary btn-sm" onClick={(e) => pagar(mov)}>
                                             <MonetizationOnIcon fontSize='small' />

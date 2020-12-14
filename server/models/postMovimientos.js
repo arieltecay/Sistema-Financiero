@@ -8,9 +8,18 @@ const postMovimientos = mongoose.Schema({
     descripcion: String,
     sucursal: String,
     proveedor: String,
-    debe: Number,
-    haber: Number,
-    observacion: String
+    debe: {
+        type: Number,
+        default: 0
+    },
+    haber: {
+        type: Number,
+        default: 0
+    },
+    observacion: {
+        type: String,
+        default:'Pendiente'
+    }
 });
 
 const PostMovimientos = mongoose.model('PostMovimientos', postMovimientos);
