@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import useStyles from './styles.js'
 import { useDispatch } from 'react-redux';
-import { createMovimiento } from '../../actions/movimientos'
+import { createMovimiento, getMovimientos } from '../../actions/movimientos'
 
 export default function Movimiento() {
 
     const dispatch = useDispatch()
-
+    const [editar, setEditar] = useState(false)
     const [postData, setPostData] = useState({
         descripcion: '',
         sucursal: '',
@@ -16,7 +16,7 @@ export default function Movimiento() {
     })
 
     const classes = useStyles();
-    
+
     const handleInputChange = (e) => {
         setPostData({
             ...postData,
@@ -27,6 +27,7 @@ export default function Movimiento() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(createMovimiento(postData))
+        setEditar(true)
     }
     const clear = () => {
         setPostData({ descripcion: '', sucursal: '', proveedor: '', haber: '' });

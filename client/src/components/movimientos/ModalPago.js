@@ -43,10 +43,9 @@ export default function ModalPago(props) {
                 <Modal {...props} size="lg" aria-labelledby="contained-modal-title-vcenter" >
                     <Modal.Header className='title' >
                         <Modal.Title id="contained-modal-title-vcenter" >
-                            <p  >Pagar</p>
+                            <p>Pagar</p>
                         </Modal.Title>
                     </Modal.Header>
-
                     <div className='containerModal'>
                         <form
                             autoComplete='off'
