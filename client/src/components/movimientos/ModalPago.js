@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Modal } from 'react-bootstrap'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateMovimiento } from '../../actions/movimientos'
 import Swal from 'sweetalert2'
 import './modalPago.css'
@@ -27,10 +27,9 @@ export default function ModalPago(props) {
     }
     if (editar) {
         Swal.fire(
-            'Good job!',
+            'Cargado OK',
             '',
             'success',
-            'confirmButtonText: Yes'
         ).then(function (result) {
             if (result.value) {
                 window.location = '/'
@@ -58,7 +57,7 @@ export default function ModalPago(props) {
                                     <TextField
                                         name='debe'
                                         label='Ingrese un Monto'
-                                        defaultValue={datos.haber}
+                                        defaultValue={0}
                                         onChange={(e) => { handleChange(e) }}
                                         variant='standard'
                                         type='number'

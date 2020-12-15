@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import { Container, CircularProgress } from '@material-ui/core';
 import './movimientos.css'
 import Table from 'react-bootstrap/Table'
@@ -7,8 +7,6 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import PrintIcon from '@material-ui/icons/Print';
 import Pagination from './pagination'
 import Modal from './ModalPago'
-import Swal from 'sweetalert2'
-import { updateMovimiento } from '../../actions/movimientos'
 
 
 import moment from 'moment'
@@ -16,7 +14,6 @@ import moment from 'moment'
 export default function Movimientos() {
 
     const movimientos = useSelector(state => state.movimientos)
-    // console.log(movimientos[0].createdAt);
     const [abrirModal, setAbrirModal] = useState(false)
     const [datos, setDatos] = useState()
 
