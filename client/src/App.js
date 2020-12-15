@@ -3,12 +3,11 @@ import FormMovimientos from './components/movimientos/FormMovimiento'
 import Movimientos from './components/movimientos/Movimientos'
 import Saldo from './components/saldo/Saldo'
 import { useDispatch } from 'react-redux';
-import { getMovimientos } from './actions/movimientos'
-import { getSaldos } from './actions/saldos'
-import { } from './reducers/saldos'
+import { getMovimientos, createMovimiento, updateMovimiento } from './actions/movimientos'
 
 import useStyles from './styles'
 import { Container, AppBar, Grow, Grid } from '@material-ui/core';
+
 const App = () => {
 
     const [currentId, setCurrentId] = useState(null);
@@ -18,14 +17,15 @@ const App = () => {
     useEffect(() => {
         dispatch(
             getMovimientos(),
-            getSaldos()
+            createMovimiento(),
+            updateMovimiento()
         )
     }, [dispatch])
 
     return (
         <Container maxidth='lg'>
             <AppBar className={classes.appBar} position='static' color='inherit'>
-                <Saldo />
+                <Saldo setCurrentId={setCurrentId} />
             </AppBar>
             <Grow in>
                 <Container>

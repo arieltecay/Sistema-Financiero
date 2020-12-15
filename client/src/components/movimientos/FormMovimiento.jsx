@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import useStyles from './styles.js'
 import { useDispatch } from 'react-redux';
-import { createMovimiento, getMovimientos } from '../../actions/movimientos'
+import { createMovimiento } from '../../actions/movimientos'
+import Swal from 'sweetalert2'
 
 export default function Movimiento() {
 
     const dispatch = useDispatch()
+    const classes = useStyles();
     const [editar, setEditar] = useState(false)
+
     const [postData, setPostData] = useState({
         descripcion: '',
         sucursal: '',
         proveedor: '',
         haber: '',
     })
-
-    const classes = useStyles();
 
     const handleInputChange = (e) => {
         setPostData({
@@ -28,6 +29,18 @@ export default function Movimiento() {
         e.preventDefault();
         dispatch(createMovimiento(postData))
         setEditar(true)
+        clear();
+    }
+    if (editar) {
+        Swal.fire(
+            'Cargado OK',
+            '',
+            'success',
+        ).then(function (result) {
+            if (result.value) {
+                window.location = '/'
+            }
+        })
     }
     const clear = () => {
         setPostData({ descripcion: '', sucursal: '', proveedor: '', haber: '' });
