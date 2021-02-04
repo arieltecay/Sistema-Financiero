@@ -9,6 +9,7 @@ export const getMovimientos = async (req, res) => {
         res.status(404).json({ message: error.message })
     }
 }
+
 export const createMovimientos = async (req, res) => {
     const movimiento = req.body;
     const newMovimiento = new PostMovimientos(movimiento);
@@ -19,6 +20,7 @@ export const createMovimientos = async (req, res) => {
         res.status(409).json({ message: error.message })
     }
 }
+
 export const updateMovimiento = async (req, res) => {
     const { id } = req.params;
     const { debe, observacion } = req.body;

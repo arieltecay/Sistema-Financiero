@@ -1,0 +1,7 @@
+.botones{
+    display: flex;
+    justify-content: space-around;
+}
+.pagination-button:hover{
+    cursor: pointer;    
+}

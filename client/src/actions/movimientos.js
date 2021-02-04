@@ -14,16 +14,14 @@ export const getMovimientos = () => async (dispatch) => {
 export const createMovimiento = (movimiento) => async (dispatch) => {
     try {
         const { data } = await api.createMovimiento(movimiento);
-
         dispatch({ type: 'CREATE', payload: data })
     } catch (error) {
         console.log("Error Criminal", error);
-
     }
 }
+
 export const updateMovimiento = (id, movimiento) => async (dispatch) => {
     try {
-        
         const { data } = await api.updateMovimiento(id, movimiento);
 
         dispatch({ type: 'UPDATE', payload: data });
