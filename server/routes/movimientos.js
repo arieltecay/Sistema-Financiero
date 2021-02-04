@@ -1,6 +1,5 @@
 import express from 'express';
-// import { updateMovimiento } from '../../client/src/api/index.js';
-import { getMovimientos, createMovimientos,updateMovimiento } from '../controllers/movimientos.js'
+import { getMovimientos, createMovimientos, updateMovimiento } from '../controllers/movimientos.js'
 
 const router = express.Router();
 

@@ -1,40 +1,45 @@
-import React, { useEffect, useState } from 'react'
-import FormMovimientos from './components/movimientos/FormMovimiento'
-import Movimientos from './components/movimientos/Movimientos'
-import Saldo from './components/saldo/Saldo'
-import { useDispatch } from 'react-redux';
-import { getMovimientos, createMovimiento, updateMovimiento } from './actions/movimientos'
+import React, { useContext, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { SaldoContext } from './context/saldoContext'
+import { formatter } from './components/Movimientos/Movimiento/Movimiento'
+import wallet2 from './assets/wallet2.svg'
 
-import useStyles from './styles'
+import { getMovimientos, createMovimiento, updateMovimiento } from './actions/movimientos'
+import Form from './components/Form/Form'
+import Movimientos from './components/Movimientos/Movimientos'
 import { Container, AppBar, Grow, Grid } from '@material-ui/core';
+import useStyles from './styles'
+import './app.css'
 
 const App = () => {
-
-    const [currentId, setCurrentId] = useState(null);
     const classes = useStyles();
     const dispatch = useDispatch();
+    const { total } = useContext(SaldoContext)
 
     useEffect(() => {
         dispatch(
             getMovimientos(),
             createMovimiento(),
-            updateMovimiento()
+            updateMovimiento(),
         )
     }, [dispatch])
 
     return (
         <Container maxidth='lg'>
             <AppBar className={classes.appBar} position='static' color='inherit'>
-                <Saldo setCurrentId={setCurrentId} />
+                <div className={total < 0 ? 'saldoN' : 'saldo'}>
+                   <img className='wallet' src={wallet2} alt=""/>
+                    Saldo: {formatter.format(total)}
+                </div>
             </AppBar>
             <Grow in>
                 <Container>
                     <Grid container justify='space-between' alignItems='stretch' spacing={3}>
                         <Grid item xs={11} sm={8}>
-                            <Movimientos setCurrentId={setCurrentId} />
+                            <Movimientos />
                         </Grid>
                         <Grid item xs={12} sm={3}>
-                            <FormMovimientos currentId={currentId} setCurrentId={setCurrentId} />
+                            <Form />
                         </Grid>
                     </Grid>
                 </Container>

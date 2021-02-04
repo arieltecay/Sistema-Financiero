@@ -1,0 +1,21 @@
+.saldo{
+    color: blue;
+    padding: 1rem;
+    font-size: 3rem;
+    src: url(./fonts/YuseiMagic/YuseiMagic-Regular.ttf);
+}
+.saldoN{
+    color: red;
+    padding: 1rem;
+    font-size: 3rem;
+    src: url(./fonts/YuseiMagic/YuseiMagic-Regular.ttf);
+}
+.wallet{
+    width: 2.5rem;
+    margin-right: 1rem;
+}
+p{
+    font-family: 'miFuente';
+    font-size: 20px;    
+    font-style: italic;
+}

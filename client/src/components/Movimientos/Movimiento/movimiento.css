@@ -1,0 +1,40 @@
+.botones{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 1rem;
+}
+.tarjetas{
+    display: flex;
+    padding-top: 0.5rem;
+}
+.tarjetasPersonal{
+    display: flex;
+    height: 25rem;
+}
+.saldoDebe{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    color: red;
+}
+.saldoDebeN{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.5rem;
+    color: black;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-weight: 800;
+    text-decoration: underline;
+}
+.titulo{
+    display: flex;
+    justify-content: center;
+}
+.imprimir{
+    display: flex;
+    justify-content: center;
+}

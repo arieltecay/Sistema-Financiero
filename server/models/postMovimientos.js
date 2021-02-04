@@ -18,7 +18,10 @@ const postMovimientos = mongoose.Schema({
     },
     observacion: {
         type: String,
-        default:'Pendiente'
+        default: 'Pendiente'
+    },
+    id: {
+        type: Number
     }
 });
 
