@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { TextField, Button, Typography, Paper, FormLabel, FormControlLabel, RadioGroup } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import Radio from '@material-ui/core/Radio';
-import xCircle from '../../assets/x-circle.svg'
-import plusCircle from '../../assets/plus-circle.svg'
+import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import ClearAllIcon from '@material-ui/icons/ClearAll';
 import useStyles from './styles.js'
 import './form.css'
 import { useDispatch } from 'react-redux';
@@ -88,8 +88,10 @@ const Form = () => {
                     type='submit'
                     fullWidth >
                     Submit
-                    <img className='xCircle' src={plusCircle} alt=""/>
-                    </Button>
+                        <CheckCircleOutlineIcon
+                        style={{ fontSize: 30, marginLeft: 10 }}
+                    />
+                </Button>
                 <Button
                     className={classes.buttonSubmit}
                     variant='contained'
@@ -98,8 +100,10 @@ const Form = () => {
                     onClick={clear}
                     fullWidth >
                     Clear
-                    <img className='xCircle' src={xCircle} alt=""/>
-                    </Button>
+                    <ClearAllIcon
+                        style={{ fontSize: 30, marginLeft: 10 }}
+                    />
+                </Button>
             </form>
         </Paper>
     )

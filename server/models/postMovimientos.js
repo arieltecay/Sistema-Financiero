@@ -20,8 +20,10 @@ const postMovimientos = mongoose.Schema({
         type: String,
         default: 'Pendiente'
     },
-    id: {
-        type: Number
+    counterId: {
+        type: Number,
+        default:0,
+        autoIncrement:true
     }
 });
 
