@@ -27,15 +27,17 @@ const App = () => {
     return (
         <Container maxidth='lg'>
             <AppBar className={classes.appBar} position='static' color='inherit'>
-                <div className={total < 0 ? 'saldoN' : 'saldo'}>
-                   <img className='wallet' src={wallet2} alt=""/>
-                    Saldo: {formatter.format(total)}
+                <div className={total <= 0 ? 'saldoN' : 'saldo'}>
+                    <div className='saldoT'>
+                        <img className='wallet' src={wallet2} alt="" />
+                        Saldo</div>
+                    {formatter.format(total)}
                 </div>
             </AppBar>
             <Grow in>
                 <Container>
                     <Grid container justify='space-between' alignItems='stretch' spacing={3}>
-                        <Grid item xs={11} sm={8}>
+                        <Grid item xs={12} sm={8}>
                             <Movimientos />
                         </Grid>
                         <Grid item xs={12} sm={3}>
