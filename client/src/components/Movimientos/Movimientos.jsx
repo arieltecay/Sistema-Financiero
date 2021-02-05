@@ -31,7 +31,7 @@ export default function Movimientos() {
                 </div>
                 <div className="row">
                     {currentMovimiento.map((mov) => (
-                        <Grid key={movimientos._id} className="col-4">
+                        <Grid key={movimientos._id} xs={12} sm={4}>
                             <Movimiento
                                 mov={mov}
                                 nRecibo={movimientos.length}

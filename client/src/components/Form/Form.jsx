@@ -40,7 +40,7 @@ const Form = () => {
     return (
         <Paper className={classes.paper}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={e => handleSubmit(e)} >
-                <Typography variant='h6' >Movimientos</Typography>
+                <Typography variant='h6' > <p>Movimientos</p></Typography>
                 <TextField
                     name='descripcion'
                     variant='filled'

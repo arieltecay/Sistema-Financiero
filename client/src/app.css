@@ -1,14 +1,17 @@
 .saldo{
-    color: blue;
-    padding: 1rem;
+    align-items: center;
+    color: black;
     font-size: 3rem;
     src: url(./fonts/YuseiMagic/YuseiMagic-Regular.ttf);
 }
 .saldoN{
     color: red;
-    padding: 1rem;
     font-size: 3rem;
     src: url(./fonts/YuseiMagic/YuseiMagic-Regular.ttf);
+}
+.saldoT{
+    display: flex;
+    justify-content: center;
 }
 .wallet{
     width: 2.5rem;
