@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Spinner from 'react-bootstrap/Spinner';
-// import { Card, Button } from 'react-bootstrap'
 import Movimiento from './Movimiento/Movimiento'
+import {Grid} from '@material-ui/core'
 import { useSelector } from 'react-redux'
 import Pagination from './Pagination'
 import './movimientos.css'
@@ -11,7 +11,6 @@ export default function Movimientos() {
     const [currentPage, setCurrentPage] = useState(1)
     const [movimientosPerPage] = useState(9)
     const movimientos = useSelector(state => state.movimientos)
-
     //Get Currents Pacients
     const indexOfLast = currentPage * movimientosPerPage;
     const indexOfFirst = indexOfLast - movimientosPerPage;
@@ -32,9 +31,12 @@ export default function Movimientos() {
                 </div>
                 <div className="row">
                     {currentMovimiento.map((mov) => (
-                        <div className="col-4">
-                            <Movimiento mov={mov} />
-                        </div>
+                        <Grid key={movimientos._id} className="col-4">
+                            <Movimiento
+                                mov={mov}
+                                nRecibo={movimientos.length}
+                            />
+                        </Grid>
                     ))}
                 </div>
             </div>
